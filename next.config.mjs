@@ -4,7 +4,7 @@ const nextConfig = {
 	reactStrictMode: false,
 	poweredByHeader: false,
 	env: {
-		APP_URL: process.env.REACT_APP_URL
+		SERVER_URL: process.env.SERVER_URL
 	},
 	async rewrites() {
 		return [
@@ -20,4 +20,4 @@ const nextConfig = {
 	}
 }
 
-module.exports = nextConfig
+export default nextConfig
