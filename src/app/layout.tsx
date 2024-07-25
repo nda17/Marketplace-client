@@ -1,8 +1,8 @@
+import '@/assets/styles/globals.scss'
 import MainProvider from '@/providers/MainProvider/MainProvider'
 import { IRootLayout } from '@/shared/types/root-layout.types'
 import { Outfit } from 'next/font/google'
 import { FC } from 'react'
-import './globals.css'
 
 const font = Outfit({
 	subsets: ['latin'],
