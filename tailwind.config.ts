@@ -1,17 +1,13 @@
 // @ts-nocheck
+import '@tailwindcss/aspect-ratio'
+import '@tailwindcss/forms'
+import colors from 'tailwindcss/colors'
 
-const colors = require('tailwindcss/colors')
-const plugin = require('tailwindcss/plugin')
+const primary = '#FF9902'
 
-const primary = '#E30B13'
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-	content: [
-		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
-		'./src/app/**/*.{js,ts,jsx,tsx,mdx}'
-	],
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+	content: ['*.{js,ts,jsx,tsx,mdx}'],
 
 	darkMode: 'media',
 
@@ -25,6 +21,11 @@ module.exports = {
 			firebrick: '#b22222',
 			tomato: '#ff6347',
 			darkYellow: '#b0965f',
+			primary: '#FF9902',
+			secondary: '#161D25',
+			'text-color': '#2E3239',
+			'bg-color': '#F2F2F5',
+			aqua: '#268697',
 			gray: {
 				300: '#d9dae8',
 				500: '#999AA5',
@@ -204,63 +205,7 @@ module.exports = {
 				rotate: 'spin 5s infinite linear'
 			}
 		}
-	},
-
-	plugins: [
-		require('@tailwindcss/forms'),
-		require('@tailwindcss/aspect-ratio'),
-		plugin(({ addComponents, theme, addUtilities }) => {
-			addComponents({
-				'.btn-primary': {
-					backgroundColor: primary,
-					color: '#ffffff',
-					borderRadius: '0.65rem',
-					transition: 'background-color .3s ease-in-out',
-					'&:hover': {
-						backgroundColor: '#ff0009'
-					}
-				},
-
-				'.text-link': {
-					textUnderlineOffset: 4,
-					color: 'rgba(255, 255, 255, .9)',
-					transition: 'text-decoration-color .3s ease-in-out',
-					textDecorationLine: 'underline',
-					textDecorationColor: 'rgba(255, 255, 255, 0.2)',
-					'&:hover': {
-						textDecorationColor: 'rgba(255, 255, 255, 0.9)'
-					}
-				},
-
-				'.air-block': {
-					borderRadius: theme('borderRadius.layout'),
-					backgroundColor: theme('colors.gray.950'),
-					color: theme('colors.white'),
-					boxShadow: theme('boxShadow.lg')
-				}
-			}),
-				addUtilities({
-					'.text-shadow': {
-						textShadow: '1px 1px rgba(0, 0, 0, 0.4)'
-					},
-
-					'.outline-border-none': {
-						outline: 'none',
-						border: 'none'
-					},
-
-					'.flex-center-between': {
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'space-between'
-					},
-
-					'.image-like-bg': {
-						objectPosition: 'center',
-						objectFit: 'cover',
-						pointerEvents: 'none'
-					}
-				})
-		})
-	]
+	}
 }
+
+export default nextConfig
